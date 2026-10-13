@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: skillswap-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_NAME=SkillSwap 2.0
+      - PROJECT_VERSION=2.0.0
+      - DATABASE_URL=sqlite:///./skillswap.db
+      - SECRET_KEY=vit-pune-skillswap-secret-key-super-secure-production-2026
+      - DEFAULT_COLLEGE=Vishwakarma Institute of Technology (VIT), Pune
+      - ALLOWED_COLLEGE_DOMAINS=vit.edu
+    volumes:
+      - ./backend/skillswap.db:/app/skillswap.db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: skillswap-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

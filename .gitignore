@@ -1,0 +1,44 @@
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# JavaScript dependencies and build output
+node_modules/
+dist/
+build/
+.vite/
+.expo/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Local IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local databases and database backups
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Local secrets and signing files
+*.pem
+*.key
+*.p12
+*.keystore
